@@ -6,15 +6,23 @@ import Header from "./../layout/header";
 // import styles from '../styles/Home.module.css'
 // import Validate from "./../layout/validate";
 // import React from 'react'
-import { useForm } from 'react-hook-form';                                                                                                                    
+import { useForm } from 'react-hook-form';   
+// import axios from 'axios'                                                                                                               
 export default function Home() {
+
   const [showModel, setShowModel] = useState(false)
   const [showModel2, setShowModel2] = useState(false)
   const [showModel3, setShowModel3] = useState(true)
 
   const {register, handleSubmit, formState:{errors}} = useForm();
   const myfun = (d) =>{
-// alert(d.yourname);
+  //   const [email,setEmail]=useState('')
+  //   const SendMail = async (e)=>{
+  //     e.preventDefault();
+  //  console.log('call')
+  //   }
+  window.location.replace("/thanku");
+// alert(d.youremail);
   }
   return (
     <div >
@@ -52,7 +60,7 @@ export default function Home() {
       </section>
       <section className="e_free_demo">
         <div className="row">
-          <h3>eLaundary Free Demo</h3>
+          <h3>E-Laundary Free Demo</h3>
           <button onClick={() => setShowModel(!showModel)} type="button" className="demo_btn">Get a Demo Form</button>
 
         </div>
@@ -60,7 +68,7 @@ export default function Home() {
       <section className="get_a_semo_form"  style={{display:showModel?"block":"none"}}>
         <div className="row get_qet_bckgrnd">
         <form onSubmit={handleSubmit(myfun)}>
-          <div className="get_demo_txt"><h4>eLaundary Free Demo</h4>
+          <div className="get_demo_txt"><h4>E-Laundary Free Demo</h4>
             <p>Try the 30 Days Free Demo.</p>
           </div>
           <div className="form-outline mb-4">
@@ -313,7 +321,7 @@ export default function Home() {
 
 
 <div className="freedemosection22">
-<h3 className='mb-6'>eLaundary Free Demo</h3>
+<h3 className='mb-6'>E-Laundary Free Demo</h3>
 <button type="button" className="demo_btn11 mt-4 "  onClick={() => setShowModel(!showModel)}>Get a Quote</button>
           {/* <button onClick={() => setShowModel(!showModel)} type="button" className="demo_btn">Get a Demo Form</button> */}
 </div>
@@ -377,7 +385,7 @@ export default function Home() {
 
 <ul className="list-unstyled">
   <li>
-  <i class="fa fa-envelope" aria-hidden="true"></i><a href="#!">info@omrasolutions.com</a>
+  <i className="fa fa-envelope" aria-hidden="true"></i><a href="#!">info@omrasolutions.com</a>
   </li>
   {/* <li>
     <a href="#!">sachin@omarasolution.com</a>
@@ -400,8 +408,8 @@ export default function Home() {
 				  <div><Link href="+91 8968140816">
           <a>+91 8968140816</a>
         </Link></div>
-		<div><Link href="+91 9773864861">
-          <a>+91 9773864861</a>
+		<div><Link href="+91 7982518911">
+          <a>+91 7982518911</a>
         </Link></div>
                   </div>
   </li>
@@ -415,7 +423,9 @@ export default function Home() {
 
 <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Office Address</h5>
 
-<p className="footer_add"> ADDRESS Office-1: E-Laundry A Product of OMRA Solutions D-20 Sector 63, Noida UP
+<p className="footer_add">Address: Noida, UP;
+Miyapur, Hyderabad
+Virar, Mumbai
 </p>
 </div>
 

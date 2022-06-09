@@ -19,7 +19,7 @@ function Footer2() {
             <section class="">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-7 text-left"> 
-					<Image  src="/img/logo-1-1 (1).png" alt="Picture of the logo" width={160} height={80} />
+				<Image  src="/img/logo-1-1 (1).png" alt="Picture of the logo" width={160} height={80} /> 
 					</div>
 					 {/* <div className="col-lg-6 col-md-5 text-right">
 						<div><Link href="+91 8968140816">
@@ -42,8 +42,8 @@ function Footer2() {
 				  <div><Link href="+91 8968140816">
           <a>+91 8968140816</a>
         </Link></div>
-		<div><Link href="+91 9773864861">
-          <a>+91 9773864861</a>
+		<div><Link href="+91 7982518911">
+          <a>+91 7982518911</a>
         </Link></div>
                   </div>
                 </li>
