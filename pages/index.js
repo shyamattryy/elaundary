@@ -43,7 +43,7 @@ export default function Home() {
         <div className="row banner_sct">
 
           <div className="col-5 banner_txt">
-            <h1><strong className="bannr_txt">Grow Your Laundary</strong>  & Dry Cleaning Business</h1>
+            <h1><strong className="bannr_txt">Grow Your Laundry</strong>  & Dry Cleaning Business</h1>
             <p>eLaundry is a Laundry and Dry Cleaning Management Software that can reduce your workload of daily operational activites
               and accomodate you to focus more on to maximize profits.</p>
           </div>
@@ -60,7 +60,7 @@ export default function Home() {
       </section>
       <section className="e_free_demo">
         <div className="row">
-          <h3>E-Laundary Free Demo</h3>
+          <h3>E-Laundry Free Demo</h3>
           <button onClick={() => setShowModel(!showModel)} type="button" className="demo_btn">Get a Demo Form</button>
 
         </div>
@@ -68,7 +68,7 @@ export default function Home() {
       <section className="get_a_semo_form"  style={{display:showModel?"block":"none"}}>
         <div className="row get_qet_bckgrnd">
         <form onSubmit={handleSubmit(myfun)}>
-          <div className="get_demo_txt"><h4>E-Laundary Free Demo</h4>
+          <div className="get_demo_txt"><h4>E-Laundry Free Demo</h4>
             <p>Try the 30 Days Free Demo.</p>
           </div>
           <div className="form-outline mb-4">
@@ -321,7 +321,7 @@ export default function Home() {
 
 
 <div className="freedemosection22">
-<h3 className='mb-6'>E-Laundary Free Demo</h3>
+<h3 className='mb-6'>E-Laundry Free Demo</h3>
 <button type="button" className="demo_btn11 mt-4 "  onClick={() => setShowModel(!showModel)}>Get a Quote</button>
           {/* <button onClick={() => setShowModel(!showModel)} type="button" className="demo_btn">Get a Demo Form</button> */}
 </div>
@@ -339,7 +339,7 @@ export default function Home() {
             <li>Automated QR Coded Tags</li>
           
             <li>Effective Financial Reports </li>
-            <li>Laundary & Dry Cleaning Mobile App</li>
+            <li>Laundry & Dry Cleaning Mobile App</li>
             <li>Excellent User Experience interface</li>
             
             </ul>
