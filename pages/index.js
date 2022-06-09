@@ -385,7 +385,7 @@ export default function Home() {
 
 <ul className="list-unstyled">
   <li>
-  <i className="fa fa-envelope" aria-hidden="true"></i><a href="#!">info@omrasolutions.com</a>
+  <i className="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@omrasolutions.com">info@omrasolutions.com</a>
   </li>
   {/* <li>
     <a href="#!">sachin@omarasolution.com</a>
