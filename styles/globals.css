@@ -121,9 +121,6 @@ section.boxstyle778 {
   padding-left: 30px;
   padding-bottom: 25px;
 }
-
-.boxstyle5 {}
-
 .boxstyle5 ul {
   display: flex;
   flex-wrap: wrap;
@@ -144,9 +141,6 @@ section.boxstyle778 {
   margin-top: 20px;
 margin-bottom: 20px;
 }
-
-li {}
-
 button.demo_btn {
   padding: 8px 15px;
   width: 13%;
