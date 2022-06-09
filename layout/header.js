@@ -19,7 +19,7 @@ function Footer2() {
             <section class="">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-md-7 text-left"> 
-				<Image  src="/img/logo-1-1 (1).png" alt="Picture of the logo" width={160} height={80} /> 
+			<Link href="/"><a><Image  src="/img/logo-1-1 (1).png" alt="Picture of the logo" width={160} height={80} /> </a></Link>
 					</div>
 					 {/* <div className="col-lg-6 col-md-5 text-right">
 						<div><Link href="+91 8968140816">
