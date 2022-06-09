@@ -39,10 +39,10 @@ function Footer2() {
                 </li>
                 <li>
                   <div className="headerright">
-				  <div><Link href="+91 8968140816">
+				  <div><Link href="tel:+91 8968140816">
           <a>+91 8968140816</a>
         </Link></div>
-		<div><Link href="+91 7982518911">
+		<div><Link href="tel:+91 7982518911">
           <a>+91 7982518911</a>
         </Link></div>
                   </div>

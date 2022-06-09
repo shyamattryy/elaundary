@@ -88,7 +88,7 @@ export default function Home() {
             {errors.country && errors.country.type == "required" && <p className='text-danger'>Please Enter Your Country</p>}
           </div>
           <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="form1Example1">city</label>
+            <label className="form-label" htmlFor="form1Example1">City</label>
             <input type="text" id="form1Example1" className="form-control" {...register('city',{required:true, minLength:3})} />
             {errors.city && errors.city.type == "required" && <p className='text-danger'>Please Enter Your City</p>}
             {errors.city && errors.city.type == "minLength" && <p className='text-warning'>Please Enter Minimum 3 Letter</p>}
@@ -405,10 +405,10 @@ export default function Home() {
 <ul className="list-unstyled">
   <li>
   <div className="headerright">
-				  <div><Link href="+91 8968140816">
+				  <div><Link href="tel:+91 8968140816">
           <a>+91 8968140816</a>
         </Link></div>
-		<div><Link href="+91 7982518911">
+		<div><Link href="tel:+91 7982518911">
           <a>+91 7982518911</a>
         </Link></div>
                   </div>
