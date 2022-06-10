@@ -7,23 +7,78 @@ import Header from "./../layout/header";
 // import Validate from "./../layout/validate";
 // import React from 'react'
 import { useForm } from 'react-hook-form';   
-// import axios from 'axios'                                                                                                               
+// import axios from 'axios' 
+import emailjs from 'emailjs-com';                                                                                                              
 export default function Home() {
 
   const [showModel, setShowModel] = useState(false)
   const [showModel2, setShowModel2] = useState(false)
   const [showModel3, setShowModel3] = useState(true)
 
-  const {register, handleSubmit, formState:{errors}} = useForm();
-  const myfun = (d) =>{
-  //   const [email,setEmail]=useState('')
-  //   const SendMail = async (e)=>{
-  //     e.preventDefault();
-  //  console.log('call')
-  //   }
-  window.location.replace("/thanku");
-// alert(d.youremail);
-  }
+  // const {register, handleSubmit, formState:{errors}} = useForm();
+  // const myfun = (e) =>{
+
+  const [inputs, setInputs] = useState({
+		name: '',
+		email: '',
+		country: '',
+    city: '',
+    phone: '',
+	})
+
+	const [form, setForm] = useState('')
+
+	const handleChange = (e) => {
+		setInputs((prev) => ({
+			...prev,
+			[e.target.id]: e.target.value,
+		}))
+	}
+
+	const onSubmitForm = async (e) => {
+		e.preventDefault()
+
+		if (inputs.name && inputs.email && inputs.country && inputs.city && inputs.phone) {
+			setForm({ state: 'loading' })
+			try {
+				const res = await fetch(`api/contact`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(inputs),
+				})
+
+				const { error } = await res.json()
+
+				if (error) {
+					setForm({
+						state: 'error',
+						message: error,
+					})
+					return
+				}
+
+				setForm({
+					state: 'success',
+					message: 'Your message was sent successfully.',
+				})
+				setInputs({
+					name: '',
+					email: '',
+					country: '',
+          city: '',
+					phone: '',
+				})
+			} catch (error) {
+				setForm({
+					state: 'error',
+					message: 'Something went wrong',
+				})
+			}
+		}
+	}
+
   return (
     <div >
       <Head>
@@ -67,39 +122,61 @@ export default function Home() {
       </section>
       <section className="get_a_semo_form"  style={{display:showModel?"block":"none"}}>
         <div className="row get_qet_bckgrnd">
-        <form onSubmit={handleSubmit(myfun)}>
+        <form onSubmit={(e) => onSubmitForm(e)}>
           <div className="get_demo_txt"><h4>E-Laundry Free Demo</h4>
             <p>Try the 30 Days Free Demo.</p>
           </div>
           <div className="form-outline mb-4">
             <label className="form-label" htmlFor="form1Example1">Your Name [Required]</label>
-            <input type="text" id="form1Example1" className="form-control" {...register('yourname',{required:true})} />
-            {errors.yourname && errors.yourname.type == "required" && <p className='text-danger'>Please Enter Your Name</p>}
+            <input type="text" id='name' minLength={3} maxLength={20} value={inputs.name} onChange={handleChange} className="form-control" required />
+            {/* {errors.yourname && errors.yourname.type == "required" && <p className='text-danger'>Please Enter Your Name</p>} */}
             {/* {errors.yourname && errors.yourname.type == "minLength" && <p className='text-warning'>Please Enter Minimum 3 Letter</p>} */}
           </div>
           <div className="form-outline mb-4">
             <label className="form-label" htmlFor="form1Example1">Your Email [Required]</label>
-            <input type="email" id="form1Example1" className="form-control" {...register('youremail',{required:true})} />
-            {errors.youremail && errors.youremail.type == "required" && <p className='text-danger'>Please Enter Your Email</p>}
+            <input 	id='email'
+					type='email'
+					value={inputs.email}
+					onChange={handleChange} className="form-control" required />
+           
           </div>
           <div className="form-outline mb-4">
             <label className="form-label" htmlFor="form1Example1">Country</label>
-            <input type="text" id="form1Example1" className="form-control" {...register('country',{required:true})} />
-            {errors.country && errors.country.type == "required" && <p className='text-danger'>Please Enter Your Country</p>}
+            <input 	id='country'
+					type='text'
+					value={inputs.country}
+					onChange={handleChange} className="form-control" required />
+           
           </div>
-          <div className="form-outline mb-4">
+           <div className="form-outline mb-4">
             <label className="form-label" htmlFor="form1Example1">City</label>
-            <input type="text" id="form1Example1" className="form-control" {...register('city',{required:true, minLength:3})} />
-            {errors.city && errors.city.type == "required" && <p className='text-danger'>Please Enter Your City</p>}
-            {errors.city && errors.city.type == "minLength" && <p className='text-warning'>Please Enter Minimum 3 Letter</p>}
-          </div>
+            <input id='city'
+					type='text'
+					value={inputs.city}
+					onChange={handleChange} className="form-control" required />
+            {/* {errors.city && errors.city.type == "required" && <p className='text-danger'>Please Enter Your City</p>}
+            {errors.city && errors.city.type == "minLength" && <p className='text-warning'>Please Enter Minimum 3 Letter</p>} */}
+          </div> 
           <div className="form-outline mb-4">
             <label className="form-label" htmlFor="form1Example1">Contact Number</label>
-            <input type="number" id="form1Example1" className="form-control" {...register('contact',{required:true})} />
-            {errors.contact && errors.contact.type == "required" && <p className='text-danger'>Please Enter Your Contact Number</p>}
+           <input id='phone'
+					type='number'
+					value={inputs.phone}
+					onChange={handleChange} minLength={10} maxLength={13} className="form-control" required />
+            {/* {errors.contact && errors.contact.type == "required" && <p className='text-danger'>Please Enter Your Contact Number</p>} */}
           </div>
 {/* <Link href="/thanku"> */}
           <input type="submit" value="Book Free Demo" className="btn btn-primary btn-block" />
+          {form.state === 'loading' ? (
+					<div>Sending....</div>
+				) : form.state === 'error' ? (
+					<div>{form.message}</div>
+				) : (
+					form.state === 'success' && <div className='mail_sucess'>Sent successfully
+<meta httpEquiv = "refresh" content = "1; url = /thanku" />
+          </div> 
+         
+				)}
           {/* </Link> */}
           {/* <Link to="/courses" replace /> */}
         </form>

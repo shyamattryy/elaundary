@@ -256,7 +256,7 @@ ul.list-unstyled li a {
   color: #fff;
 font-size: 16px;
 font-family: Segoe UI;
-font-weight: 500;
+font-weight: 400;
 padding-left: 2px;
 }
 
@@ -809,4 +809,9 @@ section.e_free_demo {
 }
 .text-warning{
   font-size: 16px !important;
+}
+.mail_sucess{
+  text-align: center;
+  color: green;
+  margin-top: 10px;
 }
