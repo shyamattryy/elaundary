@@ -434,7 +434,7 @@ export default function Home() {
           <h5>Try E-Laundry Today</h5>
           <p>No credit card | Free for 30days | Easy Setup</p>
 
-          <button type="button" className="free_trl_btn">Start Free Trial</button>
+          <button type="button" className="free_trl_btn"  onClick={() => setShowModel(!showModel)}>Start Free Trial</button>
         </div>
       </section>
 
