@@ -434,6 +434,9 @@ transition: all .4s ease-in;
 
 /* Responsive css */
 @media only screen and (max-width: 767px) {
+  /* .thankupage {
+    top: 40% !important;
+} */
   section.get_a_semo_form:before {
     
     width: 100%;
@@ -766,6 +769,13 @@ font-size: 18px;
 margin-right: 10px;
 font-weight: 900;
 }
+.thankupage p{
+  padding-bottom: 8px!important;
+  margin: 0!important;
+  font-family: Segoe UI;
+  font-weight: 500;
+  padding: 0px 15px;
+}
 .thankupage {
 display: block;
 text-align: center;
@@ -815,3 +825,4 @@ section.e_free_demo {
   color: green;
   margin-top: 10px;
 }
+

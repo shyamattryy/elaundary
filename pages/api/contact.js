@@ -18,7 +18,7 @@ export default async (req, res) => {
       to: "info@omrasolutions.com",
       cc: 'sachin@omrasolutions.com',
       bcc: 'alka@omrasolutions.com',
-      bcc: 'elaundrysolution@gmail.com',
+      bcc: 'alka@omrasolutions.com',
       subject: `Contact form submission from ${name}`,
       html: `<p>You have a contact form submission</p>
       <p><strong>Name: </strong> ${name}</p>
