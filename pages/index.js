@@ -6,9 +6,9 @@ import Header from "./../layout/header";
 // import styles from '../styles/Home.module.css'
 // import Validate from "./../layout/validate";
 // import React from 'react'
-import { useForm } from 'react-hook-form';   
+import { useForm } from 'react-hook-form';
 // import axios from 'axios' 
-import emailjs from 'emailjs-com';                                                                                                              
+import emailjs from 'emailjs-com';
 export default function Home() {
 
   const [showModel, setShowModel] = useState(false)
@@ -19,65 +19,65 @@ export default function Home() {
   // const myfun = (e) =>{
 
   const [inputs, setInputs] = useState({
-		name: '',
-		email: '',
-		country: '',
+    name: '',
+    email: '',
+    country: '',
     city: '',
     phone: '',
-	})
+  })
 
-	const [form, setForm] = useState('')
+  const [form, setForm] = useState('')
 
-	const handleChange = (e) => {
-		setInputs((prev) => ({
-			...prev,
-			[e.target.id]: e.target.value,
-		}))
-	}
+  const handleChange = (e) => {
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }))
+  }
 
-	const onSubmitForm = async (e) => {
-		e.preventDefault()
+  const onSubmitForm = async (e) => {
+    e.preventDefault()
 
-		if (inputs.name && inputs.email && inputs.country && inputs.city && inputs.phone) {
-			setForm({ state: 'loading' })
-			try {
-				const res = await fetch(`api/contact`, {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(inputs),
-				})
+    if (inputs.name && inputs.email && inputs.country && inputs.city && inputs.phone) {
+      setForm({ state: 'loading' })
+      try {
+        const res = await fetch(`api/contact`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(inputs),
+        })
 
-				const { error } = await res.json()
+        const { error } = await res.json()
 
-				if (error) {
-					setForm({
-						state: 'error',
-						message: error,
-					})
-					return
-				}
+        if (error) {
+          setForm({
+            state: 'error',
+            message: error,
+          })
+          return
+        }
 
-				setForm({
-					state: 'success',
-					message: 'Your message was sent successfully.',
-				})
-				setInputs({
-					name: '',
-					email: '',
-					country: '',
+        setForm({
+          state: 'success',
+          message: 'Your message was sent successfully.',
+        })
+        setInputs({
+          name: '',
+          email: '',
+          country: '',
           city: '',
-					phone: '',
-				})
-			} catch (error) {
-				setForm({
-					state: 'error',
-					message: 'Something went wrong',
-				})
-			}
-		}
-	}
+          phone: '',
+        })
+      } catch (error) {
+        setForm({
+          state: 'error',
+          message: 'Something went wrong',
+        })
+      }
+    }
+  }
 
   return (
     <div >
@@ -87,8 +87,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
 
 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-681569631"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `gtag('event', 'conversion', 
+{'send_to': 'AW-681569631/H3YOCIm3tskDEN_a_8QC'});`}} />
+
       </Head>
-  {/* <Validate /> */}
+      {/* <Validate /> */}
       <Header />
       <section>
         <div className="row container">
@@ -122,66 +127,66 @@ export default function Home() {
 
         </div>
       </section>
-      <section className="get_a_semo_form"  style={{display:showModel?"block":"none"}}>
+      <section className="get_a_semo_form" style={{ display: showModel ? "block" : "none" }}>
         <div className="row get_qet_bckgrnd">
-        <form onSubmit={(e) => onSubmitForm(e)}>
-          <div className="get_demo_txt"><h4>E-Laundry Free Demo</h4>
-            <p>Try the 30 Days Free Demo.</p>
-          </div>
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="form1Example1">Your Name [Required]</label>
-            <input type="text" id='name' minLength={3} maxLength={20} value={inputs.name} onChange={handleChange} className="form-control" required />
-            {/* {errors.yourname && errors.yourname.type == "required" && <p className='text-danger'>Please Enter Your Name</p>} */}
-            {/* {errors.yourname && errors.yourname.type == "minLength" && <p className='text-warning'>Please Enter Minimum 3 Letter</p>} */}
-          </div>
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="form1Example1">Your Email [Required]</label>
-            <input 	id='email'
-					type='email'
-					value={inputs.email}
-					onChange={handleChange} className="form-control" required />
-           
-          </div>
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="form1Example1">Country</label>
-            <input 	id='country'
-					type='text'
-					value={inputs.country}
-					onChange={handleChange} className="form-control" required />
-           
-          </div>
-           <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="form1Example1">City</label>
-            <input id='city'
-					type='text'
-					value={inputs.city}
-					onChange={handleChange} className="form-control" required />
-            {/* {errors.city && errors.city.type == "required" && <p className='text-danger'>Please Enter Your City</p>}
+          <form onSubmit={(e) => onSubmitForm(e)}>
+            <div className="get_demo_txt"><h4>E-Laundry Free Demo</h4>
+              <p>Try the 30 Days Free Demo.</p>
+            </div>
+            <div className="form-outline mb-4">
+              <label className="form-label" htmlFor="form1Example1">Your Name [Required]</label>
+              <input type="text" id='name' minLength={3} maxLength={20} value={inputs.name} onChange={handleChange} className="form-control" required />
+              {/* {errors.yourname && errors.yourname.type == "required" && <p className='text-danger'>Please Enter Your Name</p>} */}
+              {/* {errors.yourname && errors.yourname.type == "minLength" && <p className='text-warning'>Please Enter Minimum 3 Letter</p>} */}
+            </div>
+            <div className="form-outline mb-4">
+              <label className="form-label" htmlFor="form1Example1">Your Email [Required]</label>
+              <input id='email'
+                type='email'
+                value={inputs.email}
+                onChange={handleChange} className="form-control" required />
+
+            </div>
+            <div className="form-outline mb-4">
+              <label className="form-label" htmlFor="form1Example1">Country</label>
+              <input id='country'
+                type='text'
+                value={inputs.country}
+                onChange={handleChange} className="form-control" required />
+
+            </div>
+            <div className="form-outline mb-4">
+              <label className="form-label" htmlFor="form1Example1">City</label>
+              <input id='city'
+                type='text'
+                value={inputs.city}
+                onChange={handleChange} className="form-control" required />
+              {/* {errors.city && errors.city.type == "required" && <p className='text-danger'>Please Enter Your City</p>}
             {errors.city && errors.city.type == "minLength" && <p className='text-warning'>Please Enter Minimum 3 Letter</p>} */}
-          </div> 
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="form1Example1">Contact Number</label>
-           <input id='phone'
-					type='number'
-					value={inputs.phone}
-					onChange={handleChange} minLength={10} maxLength={13} className="form-control" required />
-            {/* {errors.contact && errors.contact.type == "required" && <p className='text-danger'>Please Enter Your Contact Number</p>} */}
-          </div>
-{/* <Link href="/thanku"> */}
-          <input type="submit" value="Book Free Demo" className="btn btn-primary btn-block" />
-          {form.state === 'loading' ? (
-					<div>Sending....</div>
-				) : form.state === 'error' ? (
-					<div>{form.message}</div>
-				) : (
-					form.state === 'success' && <div className='mail_sucess'>Sent successfully
-<meta httpEquiv = "refresh" content = "1; url = /thanku" />
-          </div> 
-         
-				)}
-          {/* </Link> */}
-          {/* <Link to="/courses" replace /> */}
-        </form>
+            </div>
+            <div className="form-outline mb-4">
+              <label className="form-label" htmlFor="form1Example1">Contact Number</label>
+              <input id='phone'
+                type='number'
+                value={inputs.phone}
+                onChange={handleChange} minLength={10} maxLength={13} className="form-control" required />
+              {/* {errors.contact && errors.contact.type == "required" && <p className='text-danger'>Please Enter Your Contact Number</p>} */}
+            </div>
+            {/* <Link href="/thanku"> */}
+            <input type="submit" value="Book Free Demo" className="btn btn-primary btn-block" />
+            {form.state === 'loading' ? (
+              <div>Sending....</div>
+            ) : form.state === 'error' ? (
+              <div>{form.message}</div>
+            ) : (
+              form.state === 'success' && <div className='mail_sucess'>Sent successfully
+                <meta httpEquiv="refresh" content="1; url = /thanku" />
+              </div>
+
+            )}
+            {/* </Link> */}
+            {/* <Link to="/courses" replace /> */}
+          </form>
         </div>
       </section>
       <section>
@@ -209,56 +214,56 @@ export default function Home() {
       </section>
 
       <div className="row getqt_btn">
-      <button type="button" className="demo_btn" onClick={() => setShowModel(!showModel)}> Get a Quote</button>
+        <button type="button" className="demo_btn" onClick={() => setShowModel(!showModel)}> Get a Quote</button>
       </div>
       <section className="get_qut_sct" >
         <div className="get_qwt_ttle"><h3>Major Features</h3></div>
         <div className="row major_fetre">
-        <div className="col-7 qoute_sct_li">
-          {/* <div class="card red py-2" id="intro"> */}
+          <div className="col-7 qoute_sct_li">
+            {/* <div class="card red py-2" id="intro"> */}
 
-          {/* <hr class="qoute_sct_li" /> */}
-          {/* <p class="font-weight-bold">Basic example</p> */}
+            {/* <hr class="qoute_sct_li" /> */}
+            {/* <p class="font-weight-bold">Basic example</p> */}
 
-          <ul>
-            <li> CRM (Customer Relationship Management System)</li>
-            <p>A complete CRM solution to manage your customer complaints & feedback.</p>
-            <li>Fully Customizable</li>
-            <p>Add or remove features according to your business needs.</p>
-            <li>Mobile Application</li>
-            <p>Rider and Customer application for pickup & delivery with integrated POS.</p>
-            <li>
-            Instant Coupons & Discount
-            </li>
-            <p>Apply instant coupons & discounts to your customer orders.</p>
-            <li>Sms & Email Notification</li>
-            <p>Communicate with your customers through Sms & Email notification.</p>
-            <li>Data Theft Control & Backup</li>
-            <p>Complete data security with user access controls & backup facility to protect sensitive data.</p>
-            <li>Advance Payment Option
-</li>
-            <p>Feature to accept partial & advance payment on your orders.</p>
-            <li>Warehouse Management</li>
-            <p>Full Warehouse tracking and mananagement by individual store.</p>
-            <li>Invoice and Challan</li>
-            <p>Automatic customer invoice and Ware-House challan generated.</p>
-        
-        
-          </ul>
-        </div>
-        <div className="col-5">
-        <Image src="/img/background/getty.jpg" className="get_qwt_img1" alt="Picture of the logo" width={350} height={350} />
-        <Image src="/img/background/image (2).jpg" className="get_qwt_img2" alt="Picture of the logo" width={350} height={200} />
+            <ul>
+              <li> CRM (Customer Relationship Management System)</li>
+              <p>A complete CRM solution to manage your customer complaints & feedback.</p>
+              <li>Fully Customizable</li>
+              <p>Add or remove features according to your business needs.</p>
+              <li>Mobile Application</li>
+              <p>Rider and Customer application for pickup & delivery with integrated POS.</p>
+              <li>
+                Instant Coupons & Discount
+              </li>
+              <p>Apply instant coupons & discounts to your customer orders.</p>
+              <li>Sms & Email Notification</li>
+              <p>Communicate with your customers through Sms & Email notification.</p>
+              <li>Data Theft Control & Backup</li>
+              <p>Complete data security with user access controls & backup facility to protect sensitive data.</p>
+              <li>Advance Payment Option
+              </li>
+              <p>Feature to accept partial & advance payment on your orders.</p>
+              <li>Warehouse Management</li>
+              <p>Full Warehouse tracking and mananagement by individual store.</p>
+              <li>Invoice and Challan</li>
+              <p>Automatic customer invoice and Ware-House challan generated.</p>
+
+
+            </ul>
+          </div>
+          <div className="col-5">
+            <Image src="/img/background/getty.jpg" className="get_qwt_img1" alt="Picture of the logo" width={350} height={350} />
+            <Image src="/img/background/image (2).jpg" className="get_qwt_img2" alt="Picture of the logo" width={350} height={200} />
 
           </div>
         </div>
       </section>
-      
+
       <section className="fullwidth1">
 
         <div className="row sec_bck_img">
           {/* <Image src="/img/banner/GettyImage.jpg" alt="Picture of the logo" width={1320} height={500} /> */}
-          
+
         </div>
       </section>
 
@@ -284,7 +289,7 @@ export default function Home() {
                 </li>
                 <li>
                   <div className="contentbox">
-                  <h5>Multiple Store Managment</h5>
+                    <h5>Multiple Store Managment</h5>
                     <p>Multiple store management with proper order tracking and connectivity with warehouse factory. Admin can access all retails or franchises from single platform.</p>
                   </div>
                 </li>
@@ -302,9 +307,9 @@ export default function Home() {
                 </li>
                 <li>
                   <div className="contentbox">
-                  <h5>Offering Deal & Discount to Customers</h5>
+                    <h5>Offering Deal & Discount to Customers</h5>
                     <p>Generate Deal and Discount coupons or promo codes. Helpful for customer retention.</p>
-                 </div>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -320,7 +325,7 @@ export default function Home() {
                 </li>
                 <li>
                   <div className="contentbox">
-                  <h5>Invoice & Garment Tag Managment</h5>
+                    <h5>Invoice & Garment Tag Managment</h5>
                     <p>Automatic Invoice or tag generation at the time of order booking both Mini and A4 size invoices.</p>
                   </div>
                 </li>
@@ -338,9 +343,9 @@ export default function Home() {
                 </li>
                 <li>
                   <div className="contentbox">
-                  <h5>Mobile Application-Customer & Rider</h5>
+                    <h5>Mobile Application-Customer & Rider</h5>
                     <p>Customer Mobile application for order booking Rider application for pickup and delivery with intergr- ated POS.</p>
-                   </div>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -356,9 +361,9 @@ export default function Home() {
                 </li>
                 <li>
                   <div className="contentbox">
-                  <h5>Online & Offline Order Payment Collection</h5>
+                    <h5>Online & Offline Order Payment Collection</h5>
                     <p>Customer can book order on store walking through website or Mobile application Payment collection offline Online through debit or credit card, Mobile wallet or Wallet.</p>
-                   </div>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -396,32 +401,32 @@ export default function Home() {
 
           </div>
           <div className="col-4">
-       
 
 
-<div className="freedemosection22">
-<h3 className='mb-6'>E-Laundry Free Demo</h3>
-<button type="button" className="demo_btn11 mt-4 "  onClick={() => setShowModel(!showModel)}>Get a Quote</button>
-          {/* <button onClick={() => setShowModel(!showModel)} type="button" className="demo_btn">Get a Demo Form</button> */}
-</div>
+
+            <div className="freedemosection22">
+              <h3 className='mb-6'>E-Laundry Free Demo</h3>
+              <button type="button" className="demo_btn11 mt-4 " onClick={() => setShowModel(!showModel)}>Get a Quote</button>
+              {/* <button onClick={() => setShowModel(!showModel)} type="button" className="demo_btn">Get a Demo Form</button> */}
+            </div>
 
 
-            
+
             <div className="col_boxx">
-              <div className="demo_form_text" style={{display:showModel3?"block":"none"}}> 
-               
-              <ul>
-            <li>End to End Garment Tracking </li>
-           
-            <li>Multi Store Management</li>
-     
-            <li>Automated QR Coded Tags</li>
-          
-            <li>Effective Financial Reports </li>
-            <li>Laundry & Dry Cleaning Mobile App</li>
-            <li>Excellent User Experience interface</li>
-            
-            </ul>
+              <div className="demo_form_text" style={{ display: showModel3 ? "block" : "none" }}>
+
+                <ul>
+                  <li>End to End Garment Tracking </li>
+
+                  <li>Multi Store Management</li>
+
+                  <li>Automated QR Coded Tags</li>
+
+                  <li>Effective Financial Reports </li>
+                  <li>Laundry & Dry Cleaning Mobile App</li>
+                  <li>Excellent User Experience interface</li>
+
+                </ul>
 
               </div>
 
@@ -436,7 +441,7 @@ export default function Home() {
           <h5>Try E-Laundry Today</h5>
           <p>No credit card | Free for 30days | Easy Setup</p>
 
-          <button type="button" className="free_trl_btn"  onClick={() => setShowModel(!showModel)}>Start Free Trial</button>
+          <button type="button" className="free_trl_btn" onClick={() => setShowModel(!showModel)}>Start Free Trial</button>
         </div>
       </section>
 
@@ -451,81 +456,81 @@ export default function Home() {
 
 
 
-    
-<footer className="page-footer font-small indigo">
 
-<div className="container text-center text-md-left">
-``
-<div className="row">
+      <footer className="page-footer font-small indigo">
 
-<div className="col-md-3 mx-auto">
+        <div className="container text-center text-md-left">
+          ``
+          <div className="row">
 
-<h5 className="font-weight-bold text-uppercase mt-3 mb-4">Get in Touch</h5>
+            <div className="col-md-3 mx-auto">
 
-<ul className="list-unstyled">
-  <li>
-  <i className="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@omrasolutions.com">info@omrasolutions.com</a>
-  </li>
-  {/* <li>
+              <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Get in Touch</h5>
+
+              <ul className="list-unstyled">
+                <li>
+                  <i className="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@omrasolutions.com">info@omrasolutions.com</a>
+                </li>
+                {/* <li>
     <a href="#!">sachin@omarasolution.com</a>
   </li>
   <li>
     <a href="#!">alka@omarasolution.com</a>
   </li> */}
-</ul>
+              </ul>
 
-</div>
+            </div>
 
-<hr className="clearfix w-100 d-md-none"/>
-<div className="col-md-3 mx-auto">
+            <hr className="clearfix w-100 d-md-none" />
+            <div className="col-md-3 mx-auto">
 
-<h5 className="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
+              <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
 
-<ul className="list-unstyled">
-  <li>
-  <div className="headerright">
-				  <div><Link href="tel:+91 8968140816">
-          <a>+91 8968140816</a>
-        </Link></div>
-		<div><Link href="tel:+91 7982518911">
-          <a>+91 7982518911</a>
-        </Link></div>
+              <ul className="list-unstyled">
+                <li>
+                  <div className="headerright">
+                    <div><Link href="tel:+91 8968140816">
+                      <a>+91 8968140816</a>
+                    </Link></div>
+                    <div><Link href="tel:+91 7982518911">
+                      <a>+91 7982518911</a>
+                    </Link></div>
                   </div>
-  </li>
-</ul>
+                </li>
+              </ul>
 
-</div>
+            </div>
 
-<hr className="clearfix w-100 d-md-none"/>
+            <hr className="clearfix w-100 d-md-none" />
 
-<div className="col-md-3 mx-auto">
+            <div className="col-md-3 mx-auto">
 
-<h5 className="font-weight-bold text-uppercase mt-3 mb-4">Office Address</h5>
+              <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Office Address</h5>
 
-<p className="footer_add">Address: Noida, UP;
-Miyapur, Hyderabad
-Virar, Mumbai
-</p>
-</div>
+              <p className="footer_add">Address: Noida, UP;
+                Miyapur, Hyderabad
+                Virar, Mumbai
+              </p>
+            </div>
 
-<hr className="clearfix w-100 d-md-none"/>
+            <hr className="clearfix w-100 d-md-none" />
 
-<div className="col-md-3 mx-auto">
-<h5 className="font-weight-bold text-uppercase mt-3 mb-4">Follow Us</h5>
+            <div className="col-md-3 mx-auto">
+              <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Follow Us</h5>
 
-{/* <div className="socail">
+              {/* <div className="socail">
                         <Link  className="fa fa-facebook" aria-hidden="true" href="https://www.facebook.com"></Link>
                         <Link  className="fa fa-twitter" aria-hidden="true" href="https://twitter.com"></Link>
                         <Link className="fa fa-linkedin" aria-hidden="true" href="https://www.linkedin.com"></Link>
                           </div> */}
-</div>
+            </div>
 
-</div>
-</div>
-<div className="row footer-copyright text-center py-3">
-    <p>Copyright © 2022. Elaundry.co.in | All rights reserved | Privacy Policy</p>
-</div>
-</footer>
+          </div>
+        </div>
+        <div className="row footer-copyright text-center py-3">
+          <p>Copyright © 2022. Elaundry.co.in | All rights reserved | Privacy Policy</p>
+        </div>
+      </footer>
     </div>
   )
 }

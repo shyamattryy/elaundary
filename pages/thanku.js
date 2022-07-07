@@ -2,9 +2,19 @@ import React from 'react'
 import Header from "./../layout/header";
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 function thanku() {
   return (
     <>  
+    <Head> 
+
+    <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)}
+    gtag('js', new Date());
+    gtag('config', 'AW-681569631');`}} />
+
+
+    </Head>
     <Header />
       <div className='thankupage'>
         
