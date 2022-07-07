@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image'
-
+import Head from 'next/head'
 function Footer2() {
   return (
     <>
+    <Head>
+
+    </Head>
     {/* <!-- Footer --> */}
     <footer className="site-header style-2">
 		

@@ -7,8 +7,10 @@ export default async (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: 'shyamattryy@gmail.com',
-      pass: 'zsibiqyspqoncofw'
+      // user: 'shyamattryy@gmail.com',
+      // pass: 'zsibiqyspqoncofw'
+      user: 'elaundarysolution@gmail.com',
+      pass: 'gmdedxwumzplaoic'
     }
   });
 
@@ -19,6 +21,9 @@ export default async (req, res) => {
       cc: 'sachin@omrasolutions.com',
       bcc: 'alka@omrasolutions.com',
       bcc: 'anupam.singh@epicglobal.co.in',
+      // to: "shyamsinghattry@gmail.com",
+      // cc: 'shyamattryy@gmail.com',
+   
       subject: `Contact form submission from ${name}`,
       html: `<p>You have a contact form submission</p>
       <p><strong>Name: </strong> ${name}</p>
